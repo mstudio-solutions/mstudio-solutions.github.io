@@ -5,7 +5,9 @@ Website for mStudio: app support pages and privacy policies.
 - `/` home
 - `/mcurrency/` mCurrency support (App Store Support URL)
 - `/mcurrency/privacy/` mCurrency privacy policy (App Store Privacy Policy URL)
-- `/config/mcurrency.json` forced-update settings read by the app.
+- `/mpractice-canada/` mPractice Canada Citizenship support (App Store Support URL)
+- `/mpractice-canada/privacy/` mPractice Canada Citizenship privacy policy (App Store Privacy Policy URL)
+- `/config/mcurrency.json`, `/config/mpractice-canada.json` forced-update settings for each app.
   Raise `minVersion` to force users on older versions to update.
   After launch, set `storeUrl` to the App Store link.
 
