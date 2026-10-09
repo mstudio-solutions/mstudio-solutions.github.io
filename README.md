@@ -5,8 +5,8 @@ Website for mStudio: app support pages and privacy policies.
 - `/` home
 - `/mcurrency/` mCurrency support (App Store Support URL)
 - `/mcurrency/privacy/` mCurrency privacy policy (App Store Privacy Policy URL)
-- `/mpractice-canada/` mPractice Canada Citizenship support (App Store Support URL)
-- `/mpractice-canada/privacy/` mPractice Canada Citizenship privacy policy (App Store Privacy Policy URL)
+- `/mpractice-canada/` mPractice Canadian Citizenship support (App Store Support URL)
+- `/mpractice-canada/privacy/` mPractice Canadian Citizenship privacy policy (App Store Privacy Policy URL)
 - `/mpractice-uk/` mPractice British Citizenship support (App Store Support URL)
 - `/mpractice-uk/privacy/` mPractice British Citizenship privacy policy (App Store Privacy Policy URL)
 - `/mpractice-aussie/` mPractice Aussie Citizenship support (App Store Support URL)
