@@ -15,9 +15,11 @@
 <h1>mStudio Solutions</h1>
 <p class="tagline">We build simple apps that are easy to use.</p>
 <p class="lead">Our apps are made for everyday people: clear layouts, large text and no clutter, so they're easy to use at any age.</p>
-<ul class="values"><li>Simple</li><li>Easy to use</li><li>Secure</li></ul>
+<p class="values">Simple · Easy to use · Secure</p>
 
 <h2>Apps</h2>
+<div class="platforms"><button type="button" aria-pressed="true" data-platform="ios">iOS</button><button type="button" aria-pressed="false" data-platform="macos">macOS</button></div>
+<div data-apps="ios">
 <div class="card app">
   <img src="assets/mcurrency-icon.png" alt="mCurrency app icon">
   <div>
@@ -50,6 +52,10 @@
     <div class="links"><a href="mpractice-aussie/">Support</a><a href="mpractice-aussie/privacy/">Privacy Policy</a></div>
   </div>
 </div>
+</div>
+<div data-apps="macos" hidden>
+  <p class="soon">macOS apps are coming soon.</p>
+</div>
 
 <h2>About mStudio</h2>
 <p>mStudio Solutions designs cloud-native solutions. We build simple, easy-to-use apps backed by secure, reliable services on Microsoft Azure. We use the same approach to help others plan and build their own solutions on Azure.</p>
@@ -59,4 +65,12 @@
 <p class="mail"><a href="mailto:mstudiosolutions@gmail.com">mstudiosolutions@gmail.com</a></p>
 </main>
 <footer><div class="wrap">© 2026 mStudio Solutions · <a href="mailto:mstudiosolutions@gmail.com">mstudiosolutions@gmail.com</a></div></footer>
+<script>
+document.querySelectorAll('.platforms button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.platforms button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+    document.querySelectorAll('[data-apps]').forEach(function(g){g.hidden=g.dataset.apps!==b.dataset.platform});
+  });
+});
+</script>
 </body></html>
