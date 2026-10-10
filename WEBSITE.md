@@ -40,7 +40,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
-- mPath: download links (home card + support page) go straight to `https://github.com/mstudio-solutions/mPath/releases/latest/download/mPath-1.0.0.pkg`. The file name has the version: when a new version ships, update both links and the file name on the support page. Install steps assume a signed, notarized .pkg (being done in the mPath session). Before going live, confirm the Release exists and the link downloads.
+- mPath: the signed .pkg is hosted on this site at `/mpath/mPath-<version>.pkg` (home card + support page link to it). New version: add the new .pkg, update both links and the file name in the install steps, delete the old .pkg. The GitHub Release on `mstudio-solutions/mPath` had an older unsigned .pkg (10 Oct 2026); the user should replace or delete it.
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.
 
