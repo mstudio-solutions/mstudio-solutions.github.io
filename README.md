@@ -11,6 +11,8 @@ Website for mStudio: app support pages and privacy policies.
 - `/mpractice-uk/privacy/` mPractice British Citizenship privacy policy (App Store Privacy Policy URL)
 - `/mpractice-aussie/` mPractice Aussie Citizenship support (App Store Support URL)
 - `/mpractice-aussie/privacy/` mPractice Aussie Citizenship privacy policy (App Store Privacy Policy URL)
+- `/mpath/` mPath support and download (free macOS app)
+- `/mpath/privacy/` mPath privacy policy
 - `/config/mcurrency.json`, `/config/mpractice-canada.json`, `/config/mpractice-uk.json`, `/config/mpractice-aussie.json` forced-update settings for each app.
   Raise `minVersion` to force users on older versions to update.
   After launch, set `storeUrl` to the App Store link.

@@ -14,15 +14,16 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-canada` – mPractice Canadian Citizenship
   - `mpractice-uk` – mPractice British Citizenship
   - `mpractice-aussie` – mPractice Aussie Citizenship
+  - `mpath` – mPath, free macOS Finder path bar (not App Store; .pkg from GitHub Releases)
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
 - `assets/style.css` – one shared stylesheet (light and dark). `assets/` also has logos and app icons.
 - Header and footer are copied in every page. A change there means editing all 9 HTML files.
 
 ## Home page iOS / macOS switch
 - Buttons in `.platforms` with `data-platform="ios|macos"`; iOS is selected on load.
-- App cards sit in `<div data-apps="ios">`. `<div data-apps="macos" hidden>` shows "macOS apps are coming soon."
+- iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath).
 - A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`.
-- New iOS app: add a `.card.app` inside `data-apps="ios"`. First macOS app: replace the "coming soon" line.
+- New app: add a `.card.app` inside the right `data-apps` div.
 
 ## Rules
 - Names: "mStudio Solutions" (titles, footer, logo alt). App: "mPractice Canadian Citizenship" (not "Canada").
@@ -39,6 +40,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
+- mPath: repo `datexts/mPath` to be transferred to `mstudio-solutions/mPath` by the user. Download links point to `https://github.com/mstudio-solutions/mPath/releases/latest`; the user builds the .pkg on a Mac and uploads it there. The build is ad-hoc signed, so the support page has "Open Anyway" install steps. Later: Developer ID signing + notarize in `build.sh`, then drop those steps.
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.
 
