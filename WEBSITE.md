@@ -40,7 +40,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
-- mPath: repo `datexts/mPath` to be transferred to `mstudio-solutions/mPath` by the user. Download links point to `https://github.com/mstudio-solutions/mPath/releases/latest`; the user builds the .pkg on a Mac and uploads it there. The build is ad-hoc signed, so the support page has "Open Anyway" install steps. Later: Developer ID signing + notarize in `build.sh`, then drop those steps.
+- mPath: download links (home card + support page) go straight to `https://github.com/mstudio-solutions/mPath/releases/latest/download/mPath-1.0.0.pkg`. The file name has the version: when a new version ships, update both links and the file name on the support page. Install steps assume a signed, notarized .pkg (being done in the mPath session). Before going live, confirm the Release exists and the link downloads.
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.
 
