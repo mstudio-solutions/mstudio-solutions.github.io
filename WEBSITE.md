@@ -14,10 +14,10 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-canada` – mPractice Canadian Citizenship
   - `mpractice-uk` – mPractice British Citizenship
   - `mpractice-aussie` – mPractice Aussie Citizenship
-  - `mpath` – mPath, free macOS Finder path bar (not App Store; .pkg from GitHub Releases)
+  - `mpath` – mPath, free macOS Finder path bar (not App Store; signed .pkg hosted on this site)
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
 - `assets/style.css` – one shared stylesheet (light and dark). `assets/` also has logos and app icons.
-- Header and footer are copied in every page. A change there means editing all 9 HTML files.
+- Header and footer are copied in every page. A change there means editing all 11 HTML files.
 
 ## Home page iOS / macOS switch
 - Buttons in `.platforms` with `data-platform="ios|macos"`; iOS is selected on load.
@@ -31,7 +31,8 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Keep "Coming soon" badges until an app is live on the App Store.
 - Plain, simple English on the site. No prices (App Store shows local prices).
 - Canada app facts come from `appstore/metadata.md` in `mstudio-solutions/mPractice-for-Canadian-Citizenship` (public, clone read-only).
-- UK and Aussie pages: do not change content for now (apps not ready).
+- UK app facts come from `appstore/metadata.md` and `mPractice-for-British-Citizenship.md` in `/Users/martin/Documents/iOS Apps Store/mPractice-for-British-Citizenship/` (the GitHub repo is private). The UK pages were updated from there on 12 October 2026. This app has no Settings page and no dark theme: languages and Restore Purchases are at the top of the About page (globe button, top right).
+- Aussie pages: do not change content for now (app not ready).
 
 ## Workflow
 1. Talk it through with the user first; show a mockup or the diff and wait for OK.
