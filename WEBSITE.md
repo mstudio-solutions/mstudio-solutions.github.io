@@ -22,7 +22,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 ## Home page iOS / macOS switch
 - Buttons in `.platforms` with `data-platform="ios|macos"`; iOS is selected on load.
 - iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath).
-- A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`.
+- A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`. macOS sets the URL to `/#macos` (shareable link, Back button works); iOS clears it.
 - New app: add a `.card.app` inside the right `data-apps` div.
 
 ## Rules
