@@ -30,6 +30,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Page title format: `<App> Support - mStudio Solutions`, `<App> Privacy Policy - mStudio Solutions`.
 - Keep "Coming soon" badges until an app is live on the App Store.
 - Plain, simple English on the site. No prices (App Store shows local prices).
+- Repo visibility rule: paid apps (with in-app purchase) are private; free apps stay public. When a new app is added, remind the user. The website repo must stay public (GitHub Pages on the free plan).
 - App repos (Canada, UK, Aussie) are private since 16 October 2026. This cloud session cannot read the user's Mac, so for app facts ask the user to drag the files into the chat (e.g. `appstore/metadata.md`).
 - Canada app facts come from `appstore/metadata.md` in `mstudio-solutions/mPractice-for-Canadian-Citizenship`.
 - UK app facts come from `appstore/metadata.md` and `mPractice-for-British-Citizenship.md` in `/Users/martin/Documents/iOS Apps Store/mPractice-for-British-Citizenship/` (the GitHub repo is private). The UK pages were updated from there on 12 October 2026. This app has no Settings page and no dark theme: languages and Restore Purchases are at the top of the About page (globe button, top right).
