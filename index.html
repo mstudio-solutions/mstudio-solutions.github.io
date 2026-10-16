@@ -18,7 +18,7 @@
 <p class="values">Simple · Easy to use · Secure</p>
 
 <h2>Apps</h2>
-<div class="platforms"><button type="button" aria-pressed="true" data-platform="ios">iOS</button><button type="button" aria-pressed="false" data-platform="macos">macOS</button></div>
+<div class="platforms"><button type="button" aria-pressed="true" data-platform="ios">iOS</button><button type="button" aria-pressed="false" data-platform="macos">macOS</button><button type="button" aria-pressed="false" data-platform="web">Web</button></div>
 <div data-apps="ios">
 <div class="card app">
   <img src="assets/mcurrency-icon.png" alt="mCurrency app icon">
@@ -64,6 +64,17 @@
 </div>
 </div>
 
+<div data-apps="web" hidden>
+<div class="card app">
+  <img src="assets/iac-bicep-icon.png" alt="IaC Generator for Bicep icon">
+  <div>
+    <h3>IaC Generator for Bicep <span class="badge">Free</span></h3>
+    <p>Build Azure infrastructure by drag and drop, and get ready-to-deploy Bicep code. Works in your browser.</p>
+    <div class="links"><a href="https://mstudio-solutions.github.io/iac-bicep-generator-v1/">Open</a><a href="iac-bicep-generator/">Details</a></div>
+  </div>
+</div>
+</div>
+
 <h2>About mStudio</h2>
 <p>mStudio Solutions designs cloud-native solutions. We build simple, easy-to-use apps backed by secure, reliable services on Microsoft Azure. We use the same approach to help others plan and build their own solutions on Azure.</p>
 
@@ -77,10 +88,10 @@ function show(platform){
   document.querySelectorAll('.platforms button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.platform===platform)});
   document.querySelectorAll('[data-apps]').forEach(function(g){g.hidden=g.dataset.apps!==platform});
 }
-function fromHash(){show(location.hash==='#macos'?'macos':'ios')}
+function fromHash(){var h=location.hash.slice(1);show(h==='macos'||h==='web'?h:'ios')}
 document.querySelectorAll('.platforms button').forEach(function(b){
   b.addEventListener('click',function(){
-    if(b.dataset.platform==='macos'){if(location.hash!=='#macos')location.hash='macos'}
+    if(b.dataset.platform!=='ios'){if(location.hash!=='#'+b.dataset.platform)location.hash=b.dataset.platform}
     else if(location.hash){history.pushState(null,'',location.pathname+location.search);fromHash()}
   });
 });

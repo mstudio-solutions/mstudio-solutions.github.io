@@ -11,6 +11,7 @@ Website for mStudio: app support pages and privacy policies.
 - `/mpractice-uk/privacy/` mPractice British Citizenship privacy policy (App Store Privacy Policy URL)
 - `/mpractice-aussie/` mPractice Aussie Citizenship support (App Store Support URL)
 - `/mpractice-aussie/privacy/` mPractice Aussie Citizenship privacy policy (App Store Privacy Policy URL)
+- `/iac-bicep-generator/` IaC Generator for Bicep details (free web tool)
 - `/mpath/` mPath support and download (free macOS app)
 - `/mpath/privacy/` mPath privacy policy
 - `/mpath/mPath-1.0.0.pkg` mPath installer (signed with Developer ID)
