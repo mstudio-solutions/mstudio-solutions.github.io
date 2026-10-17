@@ -16,13 +16,14 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-aussie` – mPractice Aussie Citizenship
   - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudio-solutions.github.io/iac-bicep-generator-v1/`.
   - `mpath` – mPath, free macOS Finder path bar (not App Store; signed .pkg hosted on this site)
+  - `clean-microsoft-teams-accounts` – Clean Microsoft Teams Accounts, free macOS tool (signed .pkg hosted on this site, no privacy page). Source and `build-pkg.sh` in repo `mstudio-solutions/Clean-Microsoft-Account-for-macOS`. Do not use Microsoft or Teams logos; the icon is our own drawing.
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
 - `assets/style.css` – one shared stylesheet (light and dark). `assets/` also has logos and app icons.
-- Header and footer are copied in every page. A change there means editing all 11 HTML files.
+- Header and footer are copied in every page. A change there means editing all 13 HTML files.
 
 ## Home page iOS / macOS / Web switch
 - Buttons in `.platforms` with `data-platform="ios|macos|web"`; iOS is selected on load.
-- iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath), web tools in `<div data-apps="web" hidden>` (IaC Generator for Bicep).
+- iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath, Clean Microsoft Teams Accounts), web tools in `<div data-apps="web" hidden>` (IaC Generator for Bicep).
 - A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`. macOS and Web set the URL to `/#macos` or `/#web` (shareable link, Back button works); iOS clears it.
 - New app: add a `.card.app` inside the right `data-apps` div.
 

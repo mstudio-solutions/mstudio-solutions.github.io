@@ -38,3 +38,5 @@ ul.list li{margin:0 0 6px}
 .mail{font-size:20px;font-weight:600}
 footer{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 40px;color:var(--muted);font-size:15px}
 footer a{color:var(--muted)}
+.warn{border-left:5px solid #f0a020}
+.shot{display:block;width:100%;max-width:280px;height:auto;border:1px solid var(--line);border-radius:12px;margin:4px 0 6px}
