@@ -14,7 +14,7 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-canada` – mPractice Canadian Citizenship
   - `mpractice-uk` – mPractice British Citizenship
   - `mpractice-aussie` – mPractice Aussie Citizenship
-  - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). App facts come from `/Users/martin/Documents/iOS Apps Store/mTranslate/mTranslate.md` and `appstore/metadata.md`.
+  - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). App facts come from `/Users/martin/Documents/mTranslate/mTranslate.md` and `appstore/metadata.md`.
   - `mtranslate-chrome` – mTranslate for Chrome, a separate free Chrome extension (Mac and Windows), with its own card in the Chrome list (home page switch: iOS / macOS / Web / Chrome, `/#chrome`) and its own icon `assets/mtranslate-chrome-icon.png`. Support page has the download and install steps; it has its own privacy page. Zip hosted at `/mtranslate-chrome/mTranslate-for-Chrome-<version>.zip`. New version: add the new zip, update the links on this support page and the home card, delete the old zip. Source is `ChromeExtension/` in repo `mstudio-solutions/mTranslate`.
   - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudio-solutions.github.io/iac-bicep-generator-v1/`.
   - `mpath` – mPath, free macOS Finder path bar (not App Store; signed .pkg hosted on this site)
