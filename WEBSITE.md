@@ -14,13 +14,14 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-canada` – mPractice Canadian Citizenship
   - `mpractice-uk` – mPractice British Citizenship
   - `mpractice-aussie` – mPractice Aussie Citizenship
-  - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). Also the free Chrome extension "mTranslate for Chrome": own card in the macOS list (icon `assets/mtranslate-chrome-icon.png`), zip hosted here at `/mtranslate/mTranslate-for-Chrome-<version>.zip`, install steps on the support page (`#chrome`). New version: add the new zip, update the link and file name on the support page, delete the old zip. Source is `ChromeExtension/` in repo `mstudio-solutions/mTranslate`. App facts come from `/Users/martin/Documents/iOS Apps Store/mTranslate/mTranslate.md` and `appstore/metadata.md`.
+  - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). App facts come from `/Users/martin/Documents/iOS Apps Store/mTranslate/mTranslate.md` and `appstore/metadata.md`.
+  - `mtranslate-chrome` – mTranslate for Chrome, a separate free Chrome extension (Mac and Windows), with its own card under mTranslate in the macOS list and its own icon `assets/mtranslate-chrome-icon.png`. Support page has the download and install steps; it has its own privacy page. Zip hosted at `/mtranslate-chrome/mTranslate-for-Chrome-<version>.zip`. New version: add the new zip, update the links on this support page and the home card, delete the old zip. Source is `ChromeExtension/` in repo `mstudio-solutions/mTranslate`.
   - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudio-solutions.github.io/iac-bicep-generator-v1/`.
   - `mpath` – mPath, free macOS Finder path bar (not App Store; signed .pkg hosted on this site)
   - `clean-microsoft-teams-accounts` – Clean Microsoft Teams Accounts, free macOS tool (signed .pkg hosted on this site, no privacy page). Source and `build-pkg.sh` in repo `mstudio-solutions/Clean-Microsoft-Account-for-macOS`. Do not use Microsoft or Teams logos; the icon is our own drawing.
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
 - `assets/style.css` – one shared stylesheet (light and dark). `assets/` also has logos and app icons.
-- Header and footer are copied in every page. A change there means editing all 15 HTML files.
+- Header and footer are copied in every page. A change there means editing all 17 HTML files.
 
 ## Home page iOS / macOS / Web switch
 - Buttons in `.platforms` with `data-platform="ios|macos|web"`; iOS is selected on load.
