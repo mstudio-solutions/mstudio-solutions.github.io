@@ -18,7 +18,7 @@
 <p class="values">Simple · Easy to use · Secure</p>
 
 <h2>Apps</h2>
-<div class="platforms"><button type="button" aria-pressed="true" data-platform="ios">iOS</button><button type="button" aria-pressed="false" data-platform="macos">macOS</button><button type="button" aria-pressed="false" data-platform="web">Web</button></div>
+<div class="platforms"><button type="button" aria-pressed="true" data-platform="ios">iOS</button><button type="button" aria-pressed="false" data-platform="macos">macOS</button><button type="button" aria-pressed="false" data-platform="web">Web</button><button type="button" aria-pressed="false" data-platform="chrome">Chrome</button></div>
 <div data-apps="ios">
 <div class="card app">
   <img src="assets/mcurrency-icon.png" alt="mCurrency app icon">
@@ -63,14 +63,6 @@
   </div>
 </div>
 <div class="card app">
-  <img src="assets/mtranslate-chrome-icon.png" alt="mTranslate for Chrome icon">
-  <div>
-    <h3>mTranslate for Chrome <span class="badge">Free</span></h3>
-    <p>A Chrome extension for Mac and Windows. Select a word on any web page and see its translation in a yellow bubble. Press the speaker to hear it.</p>
-    <div class="links"><a href="mtranslate-chrome/mTranslate-for-Chrome-1.2.9.zip">Download</a><a href="mtranslate-chrome/">Support</a><a href="mtranslate-chrome/privacy/">Privacy Policy</a></div>
-  </div>
-</div>
-<div class="card app">
   <img src="assets/mpath-icon.png" alt="mPath app icon">
   <div>
     <h3>mPath <span class="badge">Free</span></h3>
@@ -99,6 +91,17 @@
 </div>
 </div>
 
+<div data-apps="chrome" hidden>
+<div class="card app">
+  <img src="assets/mtranslate-chrome-icon.png" alt="mTranslate for Chrome icon">
+  <div>
+    <h3>mTranslate for Chrome <span class="badge">Free</span></h3>
+    <p>For Chrome on Mac and Windows. Select a word on any web page and see its translation in a yellow bubble. Press the speaker to hear it.</p>
+    <div class="links"><a href="mtranslate-chrome/mTranslate-for-Chrome-1.2.9.zip">Download</a><a href="mtranslate-chrome/">Support</a><a href="mtranslate-chrome/privacy/">Privacy Policy</a></div>
+  </div>
+</div>
+</div>
+
 <h2>About mStudio</h2>
 <p>mStudio Solutions designs cloud-native solutions. We build simple, easy-to-use apps backed by secure, reliable services on Microsoft Azure. We use the same approach to help others plan and build their own solutions on Azure.</p>
 
@@ -112,7 +115,7 @@ function show(platform){
   document.querySelectorAll('.platforms button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.platform===platform)});
   document.querySelectorAll('[data-apps]').forEach(function(g){g.hidden=g.dataset.apps!==platform});
 }
-function fromHash(){var h=location.hash.slice(1);show(h==='macos'||h==='web'?h:'ios')}
+function fromHash(){var h=location.hash.slice(1);show(h==='macos'||h==='web'||h==='chrome'?h:'ios')}
 document.querySelectorAll('.platforms button').forEach(function(b){
   b.addEventListener('click',function(){
     if(b.dataset.platform!=='ios'){if(location.hash!=='#'+b.dataset.platform)location.hash=b.dataset.platform}
