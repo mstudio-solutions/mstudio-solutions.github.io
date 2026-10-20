@@ -10,7 +10,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 ## Pages
 - `/` `index.html` – home: values, iOS / macOS app switch, app cards, About, Contact.
 - `/<app>/` support page, `/<app>/privacy/` privacy policy. These are the App Store Support and Privacy URLs, so never move them.
-  - `mcurrency` – mCurrency
+  - `mcurrency` – mCurrency. Live on the App Store since 20 October 2026: https://apps.apple.com/app/id6820315916 (badge "Free", `storeUrl` filled).
   - `mpractice-canada` – mPractice Canadian Citizenship
   - `mpractice-uk` – mPractice British Citizenship
   - `mpractice-aussie` – mPractice Aussie Citizenship
