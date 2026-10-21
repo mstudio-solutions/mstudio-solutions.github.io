@@ -47,6 +47,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
+- Name clean-up for the next app versions (do not change the apps before then): mCurrency 1.1 – App Store Connect Copyright "© 2026 mStudio" and description "Made by mStudio" → "mStudio Solutions"; mCurrency repo README still has the owner's name, "Sydney Australia" and an old datexts.github.io link (lines 2, 47, 50). mTranslate – "Also from mStudio" in the Mac app and Chrome extension; `Mac App/appstore/metadata.md` Name should be "mTranslate - Text Translator".
 - mPath: the signed .pkg is hosted on this site at `/mpath/mPath-<version>.pkg` (home card + support page link to it). New version: add the new .pkg, update both links and the file name in the install steps, delete the old .pkg. The GitHub Release on `mstudio-solutions/mPath` had an older unsigned .pkg (10 Oct 2026); the user should replace or delete it.
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.

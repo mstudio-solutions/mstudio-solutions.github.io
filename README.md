@@ -1,6 +1,6 @@
 # mstudio-solutions.github.io
 
-Website for mStudio: app support pages and privacy policies.
+Website for mStudio Solutions: app support pages and privacy policies.
 
 - `/` home
 - `/mcurrency/` mCurrency support (App Store Support URL)
@@ -19,4 +19,4 @@ Website for mStudio: app support pages and privacy policies.
   Raise `minVersion` to force users on older versions to update.
   After launch, set `storeUrl` to the App Store link.
 
-© 2026 mStudio. All rights reserved.
+© 2026 mStudio Solutions. All rights reserved.
