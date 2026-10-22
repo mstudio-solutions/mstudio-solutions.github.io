@@ -8,7 +8,10 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Repo: `mstudio-solutions/mstudio-solutions.github.io`. Branch `main` is the live site.
 
 ## Pages
-- `/` `index.html` – home: values, iOS / macOS app switch, app cards, About, Contact.
+- `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 tiles), How it works (3 steps), Apps (iOS / macOS / Web / Chrome switch, app cards), About (blue Azure card), Contact (blue card). Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
+  - Top card picture: inline SVG in `.top-art`. The floating app icons are `<img class="float f1|f2">` right after the SVG; swap them for the main apps (the user plans to put new main apps here later).
+  - Badges: `badge free` (green), `badge soon` (amber). App Store link uses `class="store"` (black button).
+  - Idea on hold: a "☁ Cloud data" badge on cards for apps that really use cloud services on Azure. Not used yet: mCurrency gets rates from Frankfurter, not Azure. Ask the user before adding it to an app.
 - `/<app>/` support page, `/<app>/privacy/` privacy policy. These are the App Store Support and Privacy URLs, so never move them.
   - `mcurrency` – mCurrency. Live on the App Store since 20 October 2026: https://apps.apple.com/app/id6820315916 (badge "Free", `storeUrl` filled).
   - `mpractice` – mPractice Citizenship Test: one app with a choice of the Australian, Canadian and UK test (made 22 October 2026, after Apple rejected the three separate apps under guideline 4.3). It uses the old Canadian app's App Store record. Icon `assets/mpractice-icon.png`. App facts come from `/Users/martin/Documents/iOS Apps Store/mPractice-Citizenship-Test/mPractice-Citizenship-Test.md` and `appstore/metadata.md`. The support page has one section per test. One card on the home page.
