@@ -29,7 +29,8 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Buttons in `.platforms` with `data-platform="ios|macos|web|chrome"`; iOS is selected on load.
 - iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath, Clean Microsoft Teams Accounts), web tools in `<div data-apps="web" hidden>` (IaC Generator for Bicep), Chrome extensions in `<div data-apps="chrome" hidden>` (mTranslate for Chrome).
 - A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`. macOS, Web and Chrome set the URL to `/#macos`, `/#web` or `/#chrome` (shareable link, Back button works); iOS clears it.
-- New app: add a `.card.app` inside the right `data-apps` div.
+- New app: add a `.card.app` inside the right `data-apps` div. Put the app name in `<h3><a class="card-link" href="<app>/">Name</a> <span class="badge ...">` – this makes the whole card open the support page (top). The card's "Support" link goes to `<app>/#contact`.
+- Support pages: `<h2 id="faq">Common questions</h2>` and `<h2 id="contact">Contact support</h2>`; the contact card has a line pointing back to `#faq`. Keep these ids on new support pages.
 
 ## Rules
 - Names: "mStudio Solutions" (titles, footer, logo alt). App: "mPractice Canadian Citizenship" (not "Canada").
