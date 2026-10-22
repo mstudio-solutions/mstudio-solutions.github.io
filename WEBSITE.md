@@ -8,7 +8,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Repo: `mstudio-solutions/mstudio-solutions.github.io`. Branch `main` is the live site.
 
 ## Pages
-- `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 tiles), How it works (3 steps), Apps (iOS / macOS / Web / Chrome switch, app cards), About (blue Azure card), Contact (blue card). Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
+- `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 small tiles in a row), How it works (3 small steps in a row with arrows), Apps (iOS / macOS / Web / Chrome switch, app cards), About (blue Azure card), Contact (blue card). Goal: on a laptop the first app card shows without scrolling, so keep the top part compact; never cut the values or steps text. Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
   - Top card picture: inline SVG in `.top-art`. The floating app icons are `<img class="float f1|f2">` right after the SVG; swap them for the main apps (the user plans to put new main apps here later).
   - Badges: `badge free` (green), `badge soon` (amber). App Store link uses `class="store"` (black button).
   - Idea on hold: a "☁ Cloud data" badge on cards for apps that really use cloud services on Azure. Not used yet: mCurrency gets rates from Frankfurter, not Azure. Ask the user before adding it to an app.
