@@ -19,6 +19,7 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). App facts come from `/Users/martin/Documents/mTranslate/mTranslate.md` and `appstore/metadata.md`.
   - `mtranslate-chrome` – mTranslate for Chrome, a separate free Chrome extension (Mac and Windows), with its own card in the Chrome list (home page switch: iOS / macOS / Web / Chrome, `/#chrome`) and its own icon `assets/mtranslate-chrome-icon.png`. Support page has the download and install steps; it has its own privacy page. Zip hosted at `/mtranslate-chrome/mTranslate-for-Chrome-<version>.zip`. New version: add the new zip, update the links on this support page and the home card, delete the old zip. Source is `Chrome/mTranslate for Chrome/` in repo `mstudio-solutions/mTranslate`.
   - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudio-solutions.github.io/iac-bicep-generator-v1/`.
+  - `mmarkdown` – mMarkdown, free macOS Markdown reader and editor for the Mac App Store, with an optional "Buy me a coffee" tip (card in the macOS list, "Coming soon"). Icon `assets/mmarkdown-icon.png`. App facts come from `/Users/martin/Documents/mMarkdown/mMarkdown.md`.
   - `mpath` – mPath, free macOS Finder path bar (not App Store; signed .pkg hosted on this site)
   - `clean-microsoft-teams-accounts` – Clean Microsoft Teams Accounts, free macOS tool (signed .pkg hosted on this site, no privacy page). Source and `build-pkg.sh` in repo `mstudio-solutions/Clean-Microsoft-Account-for-macOS`. Do not use Microsoft or Teams logos; the icon is our own drawing.
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
@@ -27,7 +28,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 
 ## Home page iOS / macOS / Web / Chrome switch
 - Buttons in `.platforms` with `data-platform="ios|macos|web|chrome"`; iOS is selected on load.
-- iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mPath, Clean Microsoft Teams Accounts), web tools in `<div data-apps="web" hidden>` (IaC Generator for Bicep), Chrome extensions in `<div data-apps="chrome" hidden>` (mTranslate for Chrome).
+- iOS app cards sit in `<div data-apps="ios">`, macOS cards in `<div data-apps="macos" hidden>` (mTranslate, mMarkdown, mPath, Clean Microsoft Teams Accounts), web tools in `<div data-apps="web" hidden>` (IaC Generator for Bicep), Chrome extensions in `<div data-apps="chrome" hidden>` (mTranslate for Chrome).
 - A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`. macOS, Web and Chrome set the URL to `/#macos`, `/#web` or `/#chrome` (shareable link, Back button works); iOS clears it.
 - New app: add a `.card.app` inside the right `data-apps` div. Put the app name in `<h3><a class="card-link" href="<app>/">Name</a> <span class="badge ...">` – this makes the whole card open the support page (top). The card's "Support" link goes to `<app>/#contact`.
 - Support pages: `<h2 id="faq">Common questions</h2>` and `<h2 id="contact">Contact support</h2>`; the contact card has a line pointing back to `#faq`. Keep these ids on new support pages.
