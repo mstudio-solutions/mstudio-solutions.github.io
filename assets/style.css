@@ -34,7 +34,7 @@ ol.list li{margin:0 0 6px}
 ul.list{padding-left:22px;margin:0 0 14px}
 ul.list li{margin:0 0 6px}
 .faq h3{margin-top:18px}
-.mail{font-size:20px;font-weight:600}
+.mail{font-size:20px;font-weight:600;overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);margin-top:48px;padding:22px 0 40px;color:var(--muted);font-size:15px}
 footer a{color:var(--muted)}
 .warn{border-left:5px solid #f0a020}
@@ -119,3 +119,14 @@ footer a{color:var(--muted)}
 .switches{display:flex;flex-wrap:wrap;gap:0 28px;align-items:flex-end;margin-top:18px}
 .switches h2{margin:0 0 8px;font-size:20px}
 @media (max-width:640px){.switches{gap:0 14px;margin-top:16px}.switches>div:last-child{margin-top:12px}}
+/* Cloud migration: 2 x 2 feature tiles */
+.feats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
+.feat .ic{width:44px;height:44px;margin:0 0 10px}.feat .ic svg{width:24px;height:24px}
+.feat h3{font-size:18px;margin:0 0 6px}
+.feat p{font-size:16px;color:var(--muted);margin:0}
+.ic-purple{background:#efeafe;color:#6a4bd6}
+@media (prefers-color-scheme:dark){.ic-purple{background:#251d3f;color:#a993ff}}
+@media (max-width:640px){.feats{grid-template-columns:1fr}.feat .ic{margin:0 0 10px}}
+.hero>div{min-width:0;overflow-wrap:anywhere}
+@media (max-width:400px){.hero{gap:14px}.hero img{width:64px;height:64px;border-radius:15px}.hero h1{font-size:30px}}

@@ -24,7 +24,7 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `cloud-migration` – Cloud migration service: short intro page (What we do, Why move to the cloud, Contact). On the home page it sits under its own "Services" switch (next to the Apps switch, button "Cloud migration", `/#services`). Keep it simple and general: no prices, no naming of PHP, cPanel or any security issue. Icon `assets/cloud-migration-icon.svg` (our own cloud drawing). The user links to this page from LinkedIn.
   - `clean-microsoft-teams-accounts` – Clean Microsoft Teams Accounts, free macOS tool (signed .pkg hosted on this site, no privacy page). Source and `build-pkg.sh` in repo `mstudio-solutions/Clean-Microsoft-Account-for-macOS`. Do not use Microsoft or Teams logos; the icon is our own drawing.
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
-- `assets/style.css` – one shared stylesheet (light and dark). Every page links it as `style.css?v=YYYYMMDD`; when you change the CSS, bump this number on all pages, or browsers may mix old CSS with new HTML for up to 10 minutes. `assets/` also has logos and app icons.
+- `assets/style.css` – one shared stylesheet (light and dark). Every page links it as `style.css?v=YYYYMMDDNN` (date + a 2-digit count); when you change the CSS, bump this number on all pages, or browsers may mix old CSS with new HTML for up to 10 minutes. `assets/` also has logos and app icons.
 - Header and footer are copied in every page. A change there means editing all HTML pages (the six redirect pages of the old mPractice apps have no header or footer).
 
 ## Home page iOS / macOS / Web / Chrome switch
