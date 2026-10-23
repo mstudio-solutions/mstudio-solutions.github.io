@@ -68,13 +68,13 @@ footer a{color:var(--muted)}
 .platforms{display:inline-flex;flex-wrap:wrap;gap:2px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:999px}
 .platforms button{display:flex;gap:6px;align-items:center;font-size:16px;padding:7px 16px;border:0;background:none;box-shadow:none}
 .platforms button[aria-pressed="true"]{background:var(--surface);border:0;color:var(--blue);box-shadow:0 2px 8px rgba(30,60,120,.15)}
-[data-apps] .app{background:var(--surface);transition:transform .2s,box-shadow .2s,border-color .2s}
-[data-apps] .app:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(40,90,170,.14);border-color:#cfe0f7}
+[data-apps] .app,.services .app{background:var(--surface);transition:transform .2s,box-shadow .2s,border-color .2s}
+[data-apps] .app:hover,.services .app:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(40,90,170,.14);border-color:#cfe0f7}
 .badge.free{background:var(--soft-green);color:var(--green);border-color:transparent}
 .badge.soon{background:var(--soft-amber);color:var(--amber);border-color:transparent}
 .links{align-items:center}
 .store{display:inline-flex;align-items:center;gap:6px;background:#111;color:#fff;text-decoration:none;border-radius:10px;padding:5px 12px;font-size:15px;font-weight:600}
-@media (prefers-color-scheme:dark){.store{background:#f2f2f2;color:#111}[data-apps] .app:hover{border-color:#2d4a72}}
+@media (prefers-color-scheme:dark){.store{background:#f2f2f2;color:#111}[data-apps] .app:hover,.services .app:hover{border-color:#2d4a72}}
 .cloudcard{position:relative;overflow:hidden;border-radius:22px;padding:24px;background:linear-gradient(135deg,#0b3d78,var(--az) 60%,#3aa0ff);color:#fff}
 .cloudcard h3{position:relative;font-size:21px;margin:0 0 8px}
 .cloudcard p{position:relative;color:#e3f0ff;font-size:17px}
@@ -107,9 +107,9 @@ footer a{color:var(--muted)}
 .contact svg{width:48px;height:48px}
 }
 @media (max-width:380px){.platforms button svg{display:none}.platforms button{padding:7px 12px}}
-@media (prefers-reduced-motion:reduce){.flow{animation:none}[data-apps] .app{transition:none}[data-apps] .app:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.flow{animation:none}.services .app{transition:none}.services .app:hover{transform:none}[data-apps] .app{transition:none}[data-apps] .app:hover{transform:none}}
 /* Whole app card opens its page; the other links stay on top */
-[data-apps] .app{position:relative;cursor:pointer}
+[data-apps] .app,.services .app{position:relative;cursor:pointer}
 .card-link{color:inherit;text-decoration:none}
 .card-link::after{content:"";position:absolute;inset:0;border-radius:18px}
 .card-link:focus-visible{outline:none}.card-link:focus-visible::after{outline:3px solid var(--blue);outline-offset:2px}
