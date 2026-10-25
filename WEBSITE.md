@@ -50,7 +50,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 
 ## Open tasks
 - Name clean-up for the next app versions (do not change the apps before then): mCurrency 1.1 – App Store Connect Copyright "© 2026 mStudio" and description "Made by mStudio" → "mStudio Solutions"; mCurrency repo README still has the owner's name, "Sydney Australia" and an old datexts.github.io link (lines 2, 47, 50). mTranslate – "Also from mStudio" in the Mac app and Chrome extension; `Mac App/appstore/metadata.md` Name should be "mTranslate - Text Translator".
-- mPath: moving to the Mac App Store (pkg removed from this site 26 October 2026). The GitHub Release on `mstudio-solutions/mPath` still has an old .pkg; the user should delete it. mPath has an in-app purchase, so its repo should be private.
+- mPath: moving to the Mac App Store (pkg removed from this site 26 October 2026). The .pkg was also deleted from the GitHub Release v1.0.0, and repo `mstudio-solutions/mPath` is now private (26 October 2026). When it goes live: remove "Coming soon", add the App Store link.
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.
 
