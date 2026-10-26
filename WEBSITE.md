@@ -4,8 +4,16 @@ Keep this file short. Update it when a rule, page or open task changes.
 
 ## What this is
 - Company site for **mStudio Solutions**: app support pages and privacy policies.
-- Live at https://mstudio-solutions.github.io (GitHub Pages, static HTML, no build step).
+- Live at https://mstudiosolutions.com (GitHub Pages, static HTML, no build step).
 - Repo: `mstudio-solutions/mstudio-solutions.github.io`. Branch `main` is the live site.
+- Contact email on every page: `info@mstudiosolutions.com` (keep the `?subject=` on support and privacy links).
+
+## Domain and email (set up 27–28 October 2026)
+- Domain `mstudiosolutions.com` bought on Cloudflare (registrar and DNS). Main address has no `www`; `www.mstudiosolutions.com` and the old `https://mstudio-solutions.github.io/...` addresses redirect (301) to the same page on `https://mstudiosolutions.com`, so old links in apps and App Store Connect still work.
+- `CNAME` file in the repo root holds `mstudiosolutions.com`. GitHub made it; never delete it, or the site goes back to the github.io address.
+- Cloudflare DNS: 4 A + 4 AAAA records for `@` (GitHub Pages IPs), CNAME `www` → `mstudio-solutions.github.io`, all "DNS only" (grey cloud; the orange proxy breaks GitHub's HTTPS certificate). TXT `_github-pages-challenge-mstudio-solutions` verifies the domain for the GitHub org; keep it.
+- Repo Settings → Pages: custom domain `mstudiosolutions.com`, Enforce HTTPS on. Changing the custom domain turns Enforce HTTPS off; tick it again once the certificate is out (a few minutes).
+- Email: Cloudflare Email Routing forwards `info@mstudiosolutions.com` to `mstudiosolutions@gmail.com` (receive only; replies go out from the Gmail address). Catch-all is Drop. Its MX, SPF and DKIM records were added by Cloudflare; don't remove them.
 
 ## Pages
 - `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 small tiles in a row), How it works (3 small steps in a row with arrows), Apps (iOS / macOS / Web / Chrome switch, app cards), About (blue Azure card), Contact (blue card). Goal: on a laptop the first app card shows without scrolling, so keep the top part compact; never cut the values or steps text. Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
@@ -18,7 +26,7 @@ Keep this file short. Update it when a rule, page or open task changes.
   - `mpractice-canada`, `mpractice-uk`, `mpractice-aussie` (and `/privacy/`) – old apps, now only redirect pages to `/mpractice/` (22 October 2026). Their icons and config files were removed. Keep the redirects, so old links still work.
   - `mtranslate` – mTranslate, free macOS app for the Mac App Store (card in the macOS list). App facts come from `/Users/martin/Documents/mTranslate/mTranslate.md` and `appstore/metadata.md`.
   - `mtranslate-chrome` – mTranslate for Chrome, a separate free Chrome extension (Mac and Windows), with its own card in the Chrome list (home page switch: iOS / macOS / Web / Chrome, `/#chrome`) and its own icon `assets/mtranslate-chrome-icon.png`. Live on the Chrome Web Store since October 2026: https://chromewebstore.google.com/detail/mtranslate/kohomkifcdlockjflgjohjomfcoceeef (home card link "Chrome Web Store", support page button and install steps). No zip on this site any more (removed 24 October 2026); a new version is uploaded to the Web Store, the site doesn't change. Source is `Chrome/mTranslate for Chrome/` in repo `mstudio-solutions/mTranslate`.
-  - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudio-solutions.github.io/iac-bicep-generator-v1/`.
+  - `iac-bicep-generator` – details page for IaC Generator for Bicep (free web tool). The tool itself lives in repo `mstudio-solutions/iac-bicep-generator-v1` at `https://mstudiosolutions.com/iac-bicep-generator-v1/`.
   - `mmarkdown` – mMarkdown, free macOS Markdown reader and editor for the Mac App Store, with an optional "Buy me a coffee" tip (card in the macOS list, "Coming soon"). Icon `assets/mmarkdown-icon.png`. App facts come from `/Users/martin/Documents/mMarkdown/mMarkdown.md`.
   - `mpath` – mPath, free macOS Finder path bar for the Mac App Store, with an optional "Buy me a coffee" tip (card in the macOS list, "Coming soon"). The website .pkg was removed on 26 October 2026; never host the app here again. App facts come from `/Users/martin/Documents/mPath/mPath.md`.
   - `cloud-migration` – Cloud migration service: short intro page (What we do, Why move to the cloud, Contact). On the home page it sits under its own "Services" switch (next to the Apps switch, button "Cloud migration", `/#services`). Keep it simple and general: no prices, no naming of PHP, cPanel or any security issue. Icon `assets/cloud-migration-icon.svg` (our own cloud drawing). The user links to this page from LinkedIn.
@@ -51,6 +59,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 ## Open tasks
 - Name clean-up for the next app versions (do not change the apps before then): mCurrency 1.1 – App Store Connect Copyright "© 2026 mStudio" and description "Made by mStudio" → "mStudio Solutions"; mCurrency repo README still has the owner's name, "Sydney Australia" and an old datexts.github.io link (lines 2, 47, 50). mTranslate – "Also from mStudio" in the Mac app and Chrome extension; `Mac App/appstore/metadata.md` Name should be "mTranslate - Text Translator".
 - mPath: moving to the Mac App Store (pkg removed from this site 26 October 2026). The .pkg was also deleted from the GitHub Release v1.0.0, and repo `mstudio-solutions/mPath` is now private (26 October 2026). When it goes live: remove "Coming soon", add the App Store link.
+- New domain, next app versions (do not change the apps before then; each app's own session does it): change the contact email `mstudiosolutions@gmail.com` → `info@mstudiosolutions.com` and the website `https://mstudio-solutions.github.io/` → `https://mstudiosolutions.com/` in the app, its App Store Connect / Chrome Web Store Support and Privacy URLs and contact email. Files: mCurrency `src/App.tsx`, `src/native.ts`; mPractice `index.html`; mTranslate `Mac App/mTranslate/SettingsView.swift` and the Chrome extension; mMarkdown and mPath `Sources/SettingsWindow.swift`. Old addresses keep working until then (redirect).
 - When an app goes live: remove its "Coming soon" badge, add the App Store link, fill `storeUrl` in `config/<app>.json`.
 - Canada app repo still has an old `docs/` folder (old support/privacy pages, old name). The App Store uses this site, so the app side should delete `docs/`. Not done from here.
 
