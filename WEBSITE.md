@@ -38,6 +38,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - App icons in `assets/` must fill the whole image (no clear border). Mac app icons often have a clear border of about 10%; crop it off first, or the icon looks smaller than the others.
 - `assets/style.css` – one shared stylesheet (light and dark). Every page links it as `style.css?v=YYYYMMDDNN` (date + a 2-digit count); when you change the CSS, bump this number on all pages, or browsers may mix old CSS with new HTML for up to 10 minutes. `assets/` also has logos and app icons.
 - Header has the logo plus `Apps · About · Contact` links (`.nav`); the current page's link has `aria-current="page"`.
+- Footer text: `© 2025–2026 mStudio Solutions · info@mstudiosolutions.com` (2025 = founding year; en dash; 29 October 2026). Use it on new pages.
 - Header and footer are copied in every page. A change there means editing all HTML pages (the six redirect pages of the old mPractice apps have no header or footer).
 
 ## Home page iOS / macOS / Web / Chrome switch
