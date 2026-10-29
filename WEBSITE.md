@@ -6,6 +6,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Company site for **mStudio Solutions**: app support pages and privacy policies.
 - Live at https://mstudiosolutions.com (GitHub Pages, static HTML, no build step).
 - Repo: `mstudio-solutions/mstudio-solutions.github.io`. Branch `main` is the live site.
+- On the Mac: `/Users/martin/Documents/Web Site/` (moved and renamed 29 October 2026; the folder name differs from the repo name).
 - Contact email on every page: `info@mstudiosolutions.com` (keep the `?subject=` on support and privacy links).
 
 ## Domain and email (set up 27–28 October 2026)
@@ -52,6 +53,8 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Cloudflare Worker `contact-form` (Free plan) at `https://contact-form.datexts.workers.dev`, live since 29 October 2026. It allows CORS only from `https://mstudiosolutions.com`; checks the fields again (email, required fields, lengths, `website` empty, 1 file, JPG/PNG/PDF by file type, 2 MB); checks Turnstile last; builds the email (MIME) itself and sends it with the `SEND_EMAIL` binding (Email Service / Email Routing) to `mstudiosolutions@gmail.com`, From `website@mstudiosolutions.com`, Reply-To the visitor, subject `[Website] <topic>: <subject>`, the file attached. Nothing is stored. Errors only give a short message; details go to the Worker logs.
 - Worker settings: binding `SEND_EMAIL`; binding `RATE_LIMITER` (Rate limiter, namespace 1001, 3 per 60 seconds: each IP can send at most 3 messages a minute; more get 429 and the page says "wait a minute"; the count is per Cloudflare location, so roughly); secret `TURNSTILE_SECRET` (the Turnstile secret key; never in the repo or chat). Turnstile widget "mStudio contact form", hostname `mstudiosolutions.com`, Managed; its site key is `TURNSTILE_SITE_KEY` in the page. The page uses `data-appearance="interaction-only"`: the box stays hidden and only shows when a visitor must click (most people pass without seeing it).
 - `contact-worker/worker.js` is a copy of the Worker code (one file, no npm). To change the Worker: edit this file, paste it into the dashboard editor (Workers & Pages → contact-form → Edit code), Deploy, then commit. New topics in the page work without a Worker change (the subject shows the topic value until it is added to `TOPICS`).
+- Cloudflare work: in the desktop app's built-in browser; the user signs in. Claude cannot paste into the Worker code editor: copy the code to the clipboard (`pbcopy`), the user presses Cmd + A, Cmd + V, then Claude checks the line count and clicks Deploy. The user pastes secrets and ticks Turnstile; Claude never does. Check any key copied from the dashboard letter by letter (a site key once had one A too many: Turnstile error 400020).
+- Testing: real sends only from the user's own Chrome (the built-in browser does not pass Turnstile). Test the 429 limit with `fetch` from the built-in browser on `/contact/`; curl from the sandbox does not hit it (its IP changes). Worker logs: Workers & Pages → contact-form → Observability.
 
 ## Rules
 - Names: "mStudio Solutions" (titles, footer, logo alt). App: "mPractice Canadian Citizenship" (not "Canada").
@@ -63,7 +66,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 ## Workflow
 1. Talk it through with the user first; show a mockup or the diff and wait for OK.
 2. Edit, check in a browser (Playwright + Chromium are installed) when layout changes.
-3. Commit on the session branch, then push the same commit to `main` (`git push origin <branch>:main`). The site updates in 1–2 minutes.
+3. Commit on the session branch, then push the same commit to `main` (`git push origin <branch>:main`). If the user prefers, commit on `main` and push it. The site updates in 1–2 minutes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
