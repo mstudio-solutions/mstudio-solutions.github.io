@@ -66,7 +66,7 @@ footer a{color:var(--muted)}
 .step{background:var(--surface);box-shadow:0 4px 14px rgba(0,90,180,.06)}
 .arrow{color:#7fb2ea;font-size:15px;align-self:center}
 .platforms{display:inline-flex;flex-wrap:wrap;gap:2px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:999px}
-.platforms button{display:flex;gap:6px;align-items:center;font-size:16px;padding:7px 16px;border:0;background:none;box-shadow:none}
+.platforms button{display:flex;gap:6px;align-items:center;font-size:16px;padding:7px 10px;border:0;background:none;box-shadow:none}
 .platforms button[aria-pressed="true"]{background:var(--surface);border:0;color:var(--blue);box-shadow:0 2px 8px rgba(30,60,120,.15)}
 [data-apps] .app{background:var(--surface);transition:transform .2s,box-shadow .2s,border-color .2s}
 [data-apps] .app:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(40,90,170,.14);border-color:#cfe0f7}
@@ -106,7 +106,9 @@ footer a{color:var(--muted)}
 .contact{flex-direction:column;align-items:flex-start;gap:10px}
 .contact svg{width:48px;height:48px}
 }
-@media (max-width:380px){.platforms button svg{display:none}.platforms button{padding:7px 12px}}
+@media (max-width:520px){.platforms button svg{display:none}}
+@media (max-width:380px){.platforms button{padding:7px 8px}}
+@media (max-width:350px){.platforms button{padding:7px 5px;font-size:14px}}
 @media (prefers-reduced-motion:reduce){.flow{animation:none}[data-apps] .app{transition:none}[data-apps] .app:hover{transform:none}}
 /* Whole app card opens its page; the other links stay on top */
 [data-apps] .app{position:relative;cursor:pointer}
@@ -116,7 +118,7 @@ footer a{color:var(--muted)}
 .app .links a{position:relative;z-index:1}
 #faq,#contact{scroll-margin-top:16px}
 
-.switches{display:flex;flex-wrap:wrap;gap:0 28px;align-items:flex-end;margin-top:18px}
+.switches{display:flex;flex-wrap:wrap;gap:0 20px;align-items:flex-end;margin-top:18px}
 .switches h2{margin:0 0 8px;font-size:20px}
 @media (max-width:640px){.switches{gap:0 14px;margin-top:16px}.switches>div:last-child{margin-top:12px}}
 /* Cloud migration: 2 x 2 feature tiles */
