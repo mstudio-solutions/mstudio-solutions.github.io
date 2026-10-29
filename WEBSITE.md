@@ -65,6 +65,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
+- About page: the "Next" cloud icon in the Our story timeline (`about/index.html`, last `.pic`) looks too plain and small; redraw it fuller and bigger, like the app icons above it. Do it after the contact Worker is done.
 - Contact form: build the Cloudflare Worker and fill in `FORM_ENDPOINT` and `TURNSTILE_SITE_KEY` (see "Contact form").
 - Name clean-up for the next app versions (do not change the apps before then): mCurrency 1.1 – App Store Connect Copyright "© 2026 mStudio" and description "Made by mStudio" → "mStudio Solutions"; mCurrency repo README still has the owner's name, "Sydney Australia" and an old datexts.github.io link (lines 2, 47, 50). mTranslate – "Also from mStudio" in the Mac app and Chrome extension; `Mac App/appstore/metadata.md` Name should be "mTranslate - Text Translator".
 - mPath: moving to the Mac App Store (pkg removed from this site 26 October 2026). The .pkg was also deleted from the GitHub Release v1.0.0, and repo `mstudio-solutions/mPath` is now private (26 October 2026). When it goes live: remove "Coming soon", add the App Store link.
