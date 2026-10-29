@@ -49,10 +49,10 @@
 </main>
 <footer><div class="wrap">© 2026 mStudio Solutions · <a href="mailto:info@mstudiosolutions.com">info@mstudiosolutions.com</a></div></footer>
 <script>
-// Fill these two in when the Cloudflare Worker is ready.
-// Until then, "Send message" opens the visitor's email app instead.
-var FORM_ENDPOINT = '';
-var TURNSTILE_SITE_KEY = '';
+// Cloudflare Worker (code backup in contact-worker/) and Turnstile site key.
+// If FORM_ENDPOINT is empty, "Send message" opens the visitor's email app instead.
+var FORM_ENDPOINT = 'https://contact-form.datexts.workers.dev';
+var TURNSTILE_SITE_KEY = '0x4AAAAAAAFqmT0c_sbSFWfbJ';
 
 (function(){
   var form = document.getElementById('contact-form');
@@ -108,6 +108,8 @@ var TURNSTILE_SITE_KEY = '';
     if (f && f.size > MAX) { show('The file is too big. Please choose a file up to 2 MB.', false); return; }
     if (f && !/\.(jpe?g|png|pdf)$/i.test(f.name)) { show('Please choose a JPG, PNG or PDF file.', false); return; }
 
+    if (TURNSTILE_SITE_KEY && !(form.elements['cf-turnstile-response'] || {}).value) { show('Please wait for the security check to finish, then try again.', false); return; }
+
     btn.disabled = true; btn.textContent = 'Sending…';
     fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form) })
       .then(function(r){ if (!r.ok) throw new Error(r.status); })
@@ -118,6 +120,7 @@ var TURNSTILE_SITE_KEY = '';
         show("Thanks! Your message is on its way. We'll reply within a few days.", true);
       })
       .catch(function(){
+        if (window.turnstile) turnstile.reset();
         show("Sorry, we couldn't send your message. Please try again, or email us at info@mstudiosolutions.com.", false);
       })
       .then(function(){ btn.disabled = false; btn.textContent = 'Send message'; });
