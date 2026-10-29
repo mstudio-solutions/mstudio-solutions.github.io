@@ -71,7 +71,7 @@ var TURNSTILE_SITE_KEY = '0x4AAAAAAFqmT0c_sbSFWfbJ';
     document.getElementById('attach-field').hidden = false;
     document.getElementById('attach-note').hidden = true;
     if (TURNSTILE_SITE_KEY) {
-      document.getElementById('captcha').innerHTML = '<div class="cf-turnstile" data-sitekey="' + TURNSTILE_SITE_KEY + '"></div>';
+      document.getElementById('captcha').innerHTML = '<div class="cf-turnstile" data-sitekey="' + TURNSTILE_SITE_KEY + '" data-appearance="interaction-only"></div>';
       var s = document.createElement('script');
       s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
       s.async = true;
