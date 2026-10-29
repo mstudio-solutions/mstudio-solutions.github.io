@@ -16,10 +16,12 @@ Keep this file short. Update it when a rule, page or open task changes.
 - Email: Cloudflare Email Routing forwards `info@mstudiosolutions.com` to `mstudiosolutions@gmail.com` (receive only; replies go out from the Gmail address). Catch-all is Drop. Its MX, SPF and DKIM records were added by Cloudflare; don't remove them.
 
 ## Pages
-- `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 small tiles in a row), How it works (3 small steps in a row with arrows), Apps (iOS / macOS / Web / Chrome switch, app cards), About (blue Azure card), Contact (blue card). Goal: on a laptop the first app card shows without scrolling, so keep the top part compact; never cut the values or steps text. Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
+- `/` `index.html` – home, in this order: top card (cloud picture), Our values (3 small tiles in a row), How it works (3 small steps in a row with arrows), Apps (iOS / macOS / Web / Chrome switch, app cards), then two small cards (`.more`) that open `/about/` and `/contact/` (29 October 2026; the long About and Contact parts moved to their own pages). Goal: on a laptop the first app card shows without scrolling, so keep the top part compact; never cut the values or steps text. Design theme: apps + cloud (Azure blue `#0078D4`, our own cloud drawing; never use Microsoft or Azure logos).
   - Top card picture: inline SVG in `.top-art`. The floating app icons are `<img class="float f1|f2">` right after the SVG; swap them for the main apps (the user plans to put new main apps here later).
   - Badges: `badge free` (green), `badge soon` (amber). App Store link uses `class="store"` (black button).
   - Idea on hold: a "☁ Cloud data" badge on cards for apps that really use cloud services on Azure. Not used yet: mCurrency gets rates from Frankfurter, not Azure. Ask the user before adding it to an app.
+- `/about/` – About us: short intro (founded 2025, simple apps for phone, computer and web), Our story timeline (2025 IaC Generator, 2026 mCurrency, Next: more cloud apps), What we make (3 tiles), What we care about (blue Azure card), Contact button. Never show the owner's name or LinkedIn on the site.
+- `/contact/` – contact form (see "Contact form" below). `/contact/?topic=<value>` picks the topic, e.g. `?topic=cloud-migration` (used by the Cloud migration card and page).
 - `/<app>/` support page, `/<app>/privacy/` privacy policy. These are the App Store Support and Privacy URLs, so never move them.
   - `mcurrency` – mCurrency. Live on the App Store since 20 October 2026: https://apps.apple.com/app/id6820315916 (badge "Free", `storeUrl` filled).
   - `mpractice` – mPractice Citizenship Test: one app with a choice of the Australian, Canadian and UK test (made 22 October 2026, after Apple rejected the three separate apps under guideline 4.3). It uses the old Canadian app's App Store record. Icon `assets/mpractice-icon.png`. App facts come from `/Users/martin/Documents/iOS Apps Store/mPractice-Citizenship-Test/mPractice-Citizenship-Test.md` and `appstore/metadata.md`. The support page has one section per test. One card on the home page.
@@ -34,6 +36,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - `config/<app>.json` – forced update: `minVersion`, `storeUrl` (empty until launch).
 - App icons in `assets/` must fill the whole image (no clear border). Mac app icons often have a clear border of about 10%; crop it off first, or the icon looks smaller than the others.
 - `assets/style.css` – one shared stylesheet (light and dark). Every page links it as `style.css?v=YYYYMMDDNN` (date + a 2-digit count); when you change the CSS, bump this number on all pages, or browsers may mix old CSS with new HTML for up to 10 minutes. `assets/` also has logos and app icons.
+- Header has the logo plus `Apps · About · Contact` links (`.nav`); the current page's link has `aria-current="page"`.
 - Header and footer are copied in every page. A change there means editing all HTML pages (the six redirect pages of the old mPractice apps have no header or footer).
 
 ## Home page iOS / macOS / Web / Chrome switch
@@ -42,6 +45,11 @@ Keep this file short. Update it when a rule, page or open task changes.
 - A small inline script at the end of `index.html` toggles `aria-pressed` and `hidden`. macOS, Web and Chrome set the URL to `/#macos`, `/#web` or `/#chrome` (shareable link, Back button works); iOS clears it.
 - New app: add a `.card.app` inside the right `data-apps` div. Put the app name in `<h3><a class="card-link" href="<app>/">Name</a> <span class="badge ...">` – this makes the whole card open the support page (top). The card's "Support" link goes to `<app>/#contact`.
 - Support pages: `<h2 id="faq">Common questions</h2>` and `<h2 id="contact">Contact support</h2>`; the contact card has a line pointing back to `#faq`. Keep these ids on new support pages.
+
+## Contact form (`contact/index.html`)
+- Fields (form `name`s): `name` (optional), `email`, `topic` (option values = app folder names, plus `general`, `cloud-migration`, `other`), `subject`, `message`, `attachment` (1 file, JPG/PNG/PDF, max 2 MB, checked in the page), `website` (hidden trap for bots: must be empty), `cf-turnstile-response` (added by Turnstile).
+- Two settings at the top of the script: `FORM_ENDPOINT` and `TURNSTILE_SITE_KEY`. While `FORM_ENDPOINT` is empty, "Send message" opens the visitor's email app with the message filled in (no attachment box). When it is set, the page POSTs the form as `multipart/form-data` to it and shows the attachment box; any 2xx = sent, anything else = error message.
+- The Cloudflare Worker (Free plan) is not built yet; another session does it. It should: allow CORS from `https://mstudiosolutions.com`; check Turnstile and that `website` is empty; check sizes (2 MB, JPG/PNG/PDF); send with the Email Routing `send_email` binding to `mstudiosolutions@gmail.com` (a verified destination), From an address on `mstudiosolutions.com`, Reply-To the visitor's email, subject `[Website] <topic>: <subject>`, the file as an attachment. Nothing is stored. Then fill in the two settings and remove this "not built yet" note.
 
 ## Rules
 - Names: "mStudio Solutions" (titles, footer, logo alt). App: "mPractice Canadian Citizenship" (not "Canada").
@@ -57,6 +65,7 @@ Keep this file short. Update it when a rule, page or open task changes.
 - This session cannot delete remote branches; ask the user to do it on GitHub.
 
 ## Open tasks
+- Contact form: build the Cloudflare Worker and fill in `FORM_ENDPOINT` and `TURNSTILE_SITE_KEY` (see "Contact form").
 - Name clean-up for the next app versions (do not change the apps before then): mCurrency 1.1 – App Store Connect Copyright "© 2026 mStudio" and description "Made by mStudio" → "mStudio Solutions"; mCurrency repo README still has the owner's name, "Sydney Australia" and an old datexts.github.io link (lines 2, 47, 50). mTranslate – "Also from mStudio" in the Mac app and Chrome extension; `Mac App/appstore/metadata.md` Name should be "mTranslate - Text Translator".
 - mPath: moving to the Mac App Store (pkg removed from this site 26 October 2026). The .pkg was also deleted from the GitHub Release v1.0.0, and repo `mstudio-solutions/mPath` is now private (26 October 2026). When it goes live: remove "Coming soon", add the App Store link.
 - New domain, next app versions (do not change the apps before then; each app's own session does it): change the contact email `mstudiosolutions@gmail.com` → `info@mstudiosolutions.com` and the website `https://mstudio-solutions.github.io/` → `https://mstudiosolutions.com/` in the app, its App Store Connect / Chrome Web Store Support and Privacy URLs and contact email. Files: mCurrency `src/App.tsx`, `src/native.ts`; mPractice `index.html`; mTranslate `Mac App/mTranslate/SettingsView.swift` and the Chrome extension; mMarkdown and mPath `Sources/SettingsWindow.swift`. Old addresses keep working until then (redirect).

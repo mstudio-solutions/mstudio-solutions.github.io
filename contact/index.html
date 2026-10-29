@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact - mStudio Solutions</title>
+<meta name="description" content="Send mStudio Solutions a message: questions, feedback or a problem with an app.">
+<link rel="stylesheet" href="../assets/style.css?v=2026102901">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="../" aria-label="mStudio Solutions home"><picture><img src="../assets/logo-blue.png" alt="mStudio Solutions" width="200" height="40"></picture></a><nav class="nav" aria-label="Main"><a href="../">Apps</a><a href="../about/">About</a><a href="./" aria-current="page">Contact</a></nav></div></header>
+<main class="wrap">
+<h1>Contact us</h1>
+<p class="lead">Questions, feedback or a problem with an app? Send us a message and we'll get back to you.</p>
+
+<form class="form" id="contact-form" novalidate>
+  <div class="row2">
+    <div class="field"><label for="f-name">Your name <small>(optional)</small></label><input id="f-name" name="name" autocomplete="name" maxlength="100" placeholder="Name"></div>
+    <div class="field"><label for="f-email">Your email</label><input id="f-email" name="email" type="email" autocomplete="email" maxlength="200" required placeholder="you@example.com"></div>
+  </div>
+  <div class="field"><label for="f-topic">Topic</label>
+    <select id="f-topic" name="topic">
+      <option value="general">General question</option>
+      <option value="mcurrency">mCurrency</option>
+      <option value="mpractice">mPractice Citizenship Test</option>
+      <option value="mtranslate">mTranslate (Mac)</option>
+      <option value="mtranslate-chrome">mTranslate for Chrome</option>
+      <option value="mmarkdown">mMarkdown</option>
+      <option value="mpath">mPath</option>
+      <option value="clean-microsoft-teams-accounts">Clean Microsoft Teams Accounts</option>
+      <option value="iac-bicep-generator">IaC Generator for Bicep</option>
+      <option value="cloud-migration">Cloud migration</option>
+      <option value="other">Other</option>
+    </select></div>
+  <div class="field"><label for="f-subject">Subject</label><input id="f-subject" name="subject" maxlength="150" required placeholder="What is it about?"></div>
+  <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message" maxlength="5000" required placeholder="Write your message here"></textarea></div>
+  <div class="field" id="attach-field" hidden><span class="label" style="display:block;font-size:15px;font-weight:600;margin:0 0 5px">Attachment <small style="font-weight:400;color:var(--muted)">(optional)</small></span>
+    <label class="drop"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4695F4" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 11l-8.5 8.5a5 5 0 0 1-7-7L14 4a3.3 3.3 0 0 1 4.7 4.7l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4L15.5 7"/></svg><span id="attach-text"><b>Choose a file</b> or drop it here<br>1 file, JPG, PNG or PDF, up to 2 MB</span><input id="f-file" name="attachment" type="file" accept=".jpg,.jpeg,.png,.pdf,image/jpeg,image/png,application/pdf"></label></div>
+  <p class="note" id="attach-note">Need to send a screenshot or file? You can add it in your email app before you press Send.</p>
+  <!-- Leave empty. Bots fill it in. -->
+  <div aria-hidden="true" style="position:absolute;left:-9999px"><input name="website" tabindex="-1" autocomplete="off"></div>
+  <div id="captcha"></div>
+  <button class="button" type="submit">Send message</button>
+  <div class="msg" id="form-msg" role="status" hidden></div>
+</form>
+<p class="note" style="margin-top:16px">You can also email us at <a href="mailto:info@mstudiosolutions.com">info@mstudiosolutions.com</a>.</p>
+</main>
+<footer><div class="wrap">© 2026 mStudio Solutions · <a href="mailto:info@mstudiosolutions.com">info@mstudiosolutions.com</a></div></footer>
+<script>
+// Fill these two in when the Cloudflare Worker is ready.
+// Until then, "Send message" opens the visitor's email app instead.
+var FORM_ENDPOINT = '';
+var TURNSTILE_SITE_KEY = '';
+
+(function(){
+  var form = document.getElementById('contact-form');
+  var msg = document.getElementById('form-msg');
+  var file = document.getElementById('f-file');
+  var topic = document.getElementById('f-topic');
+  var btn = form.querySelector('button');
+  var MAX = 2 * 1024 * 1024;
+  var live = !!FORM_ENDPOINT;
+
+  // /contact/?topic=cloud-migration picks the topic for the visitor
+  var t = new URLSearchParams(location.search).get('topic');
+  if (t && topic.querySelector('option[value="' + CSS.escape(t) + '"]')) topic.value = t;
+
+  if (live) {
+    document.getElementById('attach-field').hidden = false;
+    document.getElementById('attach-note').hidden = true;
+    if (TURNSTILE_SITE_KEY) {
+      document.getElementById('captcha').innerHTML = '<div class="cf-turnstile" data-sitekey="' + TURNSTILE_SITE_KEY + '"></div>';
+      var s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+  }
+
+  function show(text, ok){ msg.textContent = text; msg.className = 'msg ' + (ok ? 'ok' : 'err'); msg.hidden = false; }
+
+  file.addEventListener('change', function(){
+    var f = file.files[0];
+    document.getElementById('attach-text').innerHTML = f
+      ? '<b></b><br>Click to choose another file'
+      : '<b>Choose a file</b> or drop it here<br>1 file, JPG, PNG or PDF, up to 2 MB';
+    if (f) document.querySelector('#attach-text b').textContent = f.name;
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.hidden = true;
+    var bad = Array.prototype.find.call(form.querySelectorAll('[required]'), function(x){ return !x.checkValidity(); });
+    if (bad) { show(bad.type === 'email' && bad.value ? 'Please check your email address.' : 'Please fill in your email, subject and message.', false); bad.focus(); return; }
+    if (form.elements.website.value) return;
+    var topicName = topic.options[topic.selectedIndex].text;
+
+    if (!live) {
+      var body = (form.elements.name.value ? 'Name: ' + form.elements.name.value + '\n' : '') + 'Topic: ' + topicName + '\n\n' + form.elements.message.value;
+      location.href = 'mailto:info@mstudiosolutions.com?subject=' + encodeURIComponent('[' + topicName + '] ' + form.elements.subject.value) + '&body=' + encodeURIComponent(body);
+      show('Your email app should open now with your message. Press Send there to send it to us.', true);
+      return;
+    }
+
+    var f = file.files[0];
+    if (f && f.size > MAX) { show('The file is too big. Please choose a file up to 2 MB.', false); return; }
+    if (f && !/\.(jpe?g|png|pdf)$/i.test(f.name)) { show('Please choose a JPG, PNG or PDF file.', false); return; }
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch(FORM_ENDPOINT, { method: 'POST', body: new FormData(form) })
+      .then(function(r){ if (!r.ok) throw new Error(r.status); })
+      .then(function(){
+        form.reset();
+        file.dispatchEvent(new Event('change'));
+        if (window.turnstile) turnstile.reset();
+        show("Thanks! Your message is on its way. We'll reply within a few days.", true);
+      })
+      .catch(function(){
+        show("Sorry, we couldn't send your message. Please try again, or email us at info@mstudiosolutions.com.", false);
+      })
+      .then(function(){ btn.disabled = false; btn.textContent = 'Send message'; });
+  });
+})();
+</script>
+</body></html>
