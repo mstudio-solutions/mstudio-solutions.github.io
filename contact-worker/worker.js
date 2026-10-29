@@ -6,6 +6,7 @@
 // Worker settings it needs:
 //   Binding "Send email"  name: SEND_EMAIL        (destination: mstudiosolutions@gmail.com)
 //   Secret                name: TURNSTILE_SECRET  (secret key of the Turnstile widget)
+//   Binding "Rate limiter" name: RATE_LIMITER     (namespace 1001, limit 3, period 60 seconds)
 //
 // Backup copy: contact-worker/worker.js in repo mstudio-solutions/mstudio-solutions.github.io
 
@@ -74,6 +75,14 @@ export default {
 
 async function handleForm(request, env, cors) {
   const bad = (status = 400) => reply(status, status === 413 ? "Too large" : "Please check the form", cors);
+
+  // At most 3 messages a minute from one IP address (set in the RATE_LIMITER binding).
+  // Checked first, so a blocked send costs almost nothing. No binding = no limit.
+  if (env.RATE_LIMITER) {
+    const ip = request.headers.get("CF-Connecting-IP") || "unknown";
+    const { success } = await env.RATE_LIMITER.limit({ key: ip });
+    if (!success) return reply(429, "Too many messages", cors);
+  }
 
   const type = request.headers.get("Content-Type") || "";
   if (!/^multipart\/form-data\s*;/i.test(type)) return reply(415, "Unsupported content type", cors);
