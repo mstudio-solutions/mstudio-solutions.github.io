@@ -185,7 +185,15 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 @media (max-width:350px){.platforms button{padding:7px 5px;font-size:14px}}
 @media (prefers-reduced-motion:reduce){.flow{animation:none}}
 /* Official store badges (Apple, Microsoft, Google artwork; never change them, only resize) */
-.store-badge{display:inline-block;line-height:0;text-decoration:none!important}
+.store-badge{display:inline-block;line-height:0;text-decoration:none!important;border-radius:8px;transition:transform .15s,box-shadow .15s}
+.store-badge:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,.18)}
+.store-badge:active{transform:scale(.96);box-shadow:none}
+.store-badge:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media (prefers-color-scheme:dark){.store-badge:hover{box-shadow:0 6px 16px rgba(0,0,0,.6)}}
+@media (prefers-reduced-motion:reduce){.store-badge{transition:none}.store-badge:hover,.store-badge:active{transform:none}}
 .store-badge img,.app .store-badge img,.home .app .store-badge img{display:block;height:40px;width:auto;border-radius:0;flex-shrink:0}
 .store-row{margin:22px 0 14px}
 .store-row .store-badge img{height:48px}
+/* Chrome badge: a little smaller, with round corners like the other badges (Martin, 18 November 2026) */
+.store-badge img[src*="chrome-web-store"]{height:34px;border-radius:7px}
+.store-row .store-badge img[src*="chrome-web-store"]{height:40px;border-radius:8px}
