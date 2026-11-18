@@ -184,3 +184,8 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 @media (max-width:380px){.platforms button{padding:7px 8px}}
 @media (max-width:350px){.platforms button{padding:7px 5px;font-size:14px}}
 @media (prefers-reduced-motion:reduce){.flow{animation:none}}
+/* Official store badges (Apple, Microsoft, Google artwork; never change them, only resize) */
+.store-badge{display:inline-block;line-height:0;text-decoration:none!important}
+.store-badge img,.app .store-badge img,.home .app .store-badge img{display:block;height:40px;width:auto;border-radius:0;flex-shrink:0}
+.store-row{margin:22px 0 14px}
+.store-row .store-badge img{height:48px}
